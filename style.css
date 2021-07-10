@@ -26,3 +26,21 @@ header {
 footer {
   background: lightgray;
 }
+
+header,
+footer,
+main {
+  display: flex;
+  flex-flow: column;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+section.container {
+  border: 1px solid;
+}
