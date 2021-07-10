@@ -40,8 +40,11 @@ function createFileConfigFormNodes(
   template: HTMLTemplateElement
 ): Node[] {
   return fileNames.map((fileName) => {
-    const element = template.content.cloneNode(true);
-    element.textContent = fileName;
+    const element = template.content.firstElementChild!.cloneNode(true);
+    const label = (element as HTMLElement).querySelector("label");
+    if (label) {
+      label.textContent = fileName;
+    }
     return element;
   });
 }
