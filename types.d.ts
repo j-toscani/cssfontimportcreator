@@ -1,10 +1,11 @@
-type FontConfigStyle = {
+export type FontConfigStyle = {
   weight?: string;
   style?: string;
+  type?: string;
   url: string;
 };
 
-type FontImportConfig = {
+export type FontImportConfig = {
   fontName: string;
   fontFamily: string;
   styles: FontConfigStyle[];
