@@ -1,4 +1,4 @@
-function handleFileChange(e: InputEvent) {
+export default function handleFileChange(e: InputEvent) {
   const files = (e.target as HTMLInputElement).files;
 
   if (!files) {
