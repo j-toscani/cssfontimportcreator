@@ -1,6 +1,6 @@
 import { FontConfigStyle } from "../types";
 
-export default function handleFileCreation(e: Event) {
+export default function handleFormSubmit(e: Event) {
   e.preventDefault();
   const fieldsets = Array.from(getFieldsets());
   const configs = fieldsets.map((fieldset) => getConfigFromFieldset(fieldset));
@@ -20,9 +20,13 @@ export default function handleFileCreation(e: Event) {
     .map((config) => createFileString(config))
     .join("\n");
 
-  const blob = new Blob([fileContent], { type: "text/css" });
+  const blob = new Blob([fileContent.replace(/\s+/g, "")], {
+    type: "text/css",
+  });
   const objectUrl = URL.createObjectURL(blob);
   downloadFile(objectUrl, fileConfig.name);
+
+  document.querySelector("#cssdisplay")!.textContent = fileContent;
 }
 
 function getFieldsets() {
@@ -41,14 +45,14 @@ function downloadFile(fileUrl: string, fileName: string) {
 }
 
 function createFileStringCreator(name: string, type: string) {
-  return (config: FontConfigStyle) => `
+  return (config: FontConfigStyle) =>
+    `
     @font-face {
-        font-family: ${name}, ${type};
-        ${config.weight ? "font-weight: " + config.weight + ";" : ""}
-        ${config.style ? "font-style: " + config.style + ";" : ""}
-        url: url(${config.url});
-    }
-    `;
+      font-family: ${name}, ${type};
+      ${config.weight ? "font-weight: " + config.weight + ";" : ""}
+      ${config.style ? "font-style: " + config.style + ";" : ""}
+      url: url("${config.url}");
+    }\n`;
 }
 
 function getMetaInfos() {
