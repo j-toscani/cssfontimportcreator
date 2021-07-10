@@ -9,3 +9,5 @@ type FontImportConfig = {
   fontFamily: string;
   styles: FontConfigStyle[];
 };
+
+export type StyleConfig = { value: string; label: string; isSelected: boolean };

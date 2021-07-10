@@ -1,3 +1,5 @@
+import { StyleConfig } from "../types";
+
 const fontWeights = [100, 200, 300, 400, 500, 600, 700, 800, 900] as const;
 const fontStyles = ["normal", "italic", "oblique"] as const;
 
@@ -37,25 +39,22 @@ export default function setUpTemplate() {
 
 function fillSelectWithOptions(
   element: HTMLSelectElement,
-  configs: { value: string; label: string; isSelected?: boolean }[]
+  configs: StyleConfig[]
 ) {
   const options = configs.map(createOption);
-  options.forEach((option, index) => {
-    if (index === 0) {
-      option.selected = true;
-    }
+  options.forEach((option) => {
     element.appendChild(option);
   });
   return element;
 }
 
-function createOption(config: {
-  value: string;
-  label: string;
-}): HTMLOptionElement {
-  const { value, label } = config;
+function createOption(config: StyleConfig): HTMLOptionElement {
+  const { value, label, isSelected } = config;
   const option = document.createElement("option");
   option.setAttribute("value", value);
+  if (isSelected) {
+    option.setAttribute("selected", "true");
+  }
   option.textContent = label;
   return option;
 }
