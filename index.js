@@ -1,7 +1,4 @@
-const fileInput = document.querySelector("#files");
+import handleFileChange from "./dist/handleFileChange.js";
 
-fileInput.addEventListener("change", (e) => {
-  const files = Array.from(e.target.files);
-  const filesNames = files.map((file) => file.name);
-  console.log(filesNames);
-});
+const fileInput = document.querySelector("#files");
+fileInput.addEventListener("change", handleFileChange);
