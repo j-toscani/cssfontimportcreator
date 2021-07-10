@@ -41,7 +41,7 @@ function createFileConfigFormNodes(
 ): Node[] {
   return fileNames.map((fileName) => {
     const element = template.content.firstElementChild!.cloneNode(true);
-    const label = (element as HTMLElement).querySelector("label");
+    const label = (element as HTMLElement).querySelector(".configinput__label");
     if (label) {
       label.textContent = fileName;
     }
