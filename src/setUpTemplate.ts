@@ -20,8 +20,6 @@ export default function setUpTemplate() {
     return;
   }
 
-  console.log(templateContent);
-
   const fontStyleSelect = templateContent.querySelector('[name="fontstyle"]');
   const fontWeightSelect = templateContent.querySelector('[name="fontweight"]');
 
@@ -62,7 +60,7 @@ function createOption(config: {
   return option;
 }
 
-function getTemplateContent() {
+export function getTemplateContent() {
   const template = document.querySelector("#configinput");
 
   if (!template) {
