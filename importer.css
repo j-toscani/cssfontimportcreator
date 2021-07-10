@@ -1,0 +1,40 @@
+.fontinputs__container {
+  display: grid;
+  gap: 1rem;
+}
+
+.configinput__container {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  grid-template-columns: auto;
+  gap: 0.5rem;
+}
+
+@media (min-width: 767px) {
+  .configinput__container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto;
+  }
+}
+
+input[type="file"] {
+  display: none;
+}
+
+label[for] {
+  cursor: inherit;
+}
+
+.filesinput__container {
+  padding: 1rem;
+  border: dashed 1px;
+  opacity: 0.75;
+
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: opacity 0.2s ease-out;
+}
+
+.filesinput__container:hover {
+  opacity: 1;
+}

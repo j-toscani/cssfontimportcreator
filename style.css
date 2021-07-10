@@ -1,6 +1,6 @@
-*,
-*::before,
-*::after {
+@import "importer.css";
+
+*, *: : before, *: : after {
   box-sizing: inherit;
 }
 
@@ -13,7 +13,6 @@ html {
 body {
   margin: 0;
   height: 100%;
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 15vh 1fr 20vh;
@@ -37,10 +36,5 @@ main {
 .container {
   padding: 2rem;
   max-width: 800px;
-  width: 100%;
   margin: 0 auto;
-}
-
-section.container {
-  border: 1px solid;
 }
