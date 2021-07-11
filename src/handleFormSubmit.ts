@@ -25,12 +25,16 @@ export default function handleFormSubmit(e: Event) {
   });
   const objectUrl = URL.createObjectURL(blob);
   downloadFile(objectUrl, fileConfig.name);
-
-  document.querySelector("#cssdisplay")!.textContent = fileContent;
+  displayCssString(fileContent);
 }
 
 function getFieldsets() {
   return document.querySelectorAll("#fontinputs > fieldset");
+}
+
+function displayCssString(fileContent: string) {
+  document.querySelector("#cssdisplay")!.textContent = fileContent;
+  document.querySelector("#cssdisplaycontainer")?.classList.add("visible");
 }
 
 function downloadFile(fileUrl: string, fileName: string) {
