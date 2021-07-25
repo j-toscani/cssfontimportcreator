@@ -2,7 +2,7 @@ export type FontConfigStyle = {
   weight?: string;
   style?: string;
   type?: string;
-  url: string;
+  src: string;
 };
 
 export type FontImportConfig = {

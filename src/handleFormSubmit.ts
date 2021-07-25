@@ -55,7 +55,7 @@ function createFileStringCreator(name: string, type: string) {
       font-family: ${name}, ${type};
       ${config.weight ? "font-weight: " + config.weight + ";" : ""}
       ${config.style ? "font-style: " + config.style + ";" : ""}
-      url: url("${config.url}");
+      src: url("${config.src}");
     }\n`;
 }
 
@@ -76,7 +76,7 @@ function getConfigFromFieldset(fieldset: Element): FontConfigStyle {
   return {
     style: values[0] ?? "normal",
     weight: values[1] ?? "400",
-    url: `/${fileName}`,
+    src: `/${fileName}`,
   };
 }
 

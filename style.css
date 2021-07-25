@@ -1,11 +1,23 @@
 @import "/styles/importer.css";
 
-*, *: : before, *: : after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
+}
+
+:root {
+  --color-100: hsl(214, 46%, 80%);
+  --color-200: hsl(214, 46%, 60%);
+  --color-300: hsl(214, 46%, 40%);
+  --color-400: hsl(214, 46%, 20%);
+  --color-500: hsl(214, 46%, 0%);
+  color: var(--color-500);
 }
 
 html {
   height: 100%;
+
   box-sizing: border-box;
   font-size: clamp(12px, 2.5vw, 20px);
 }
@@ -19,11 +31,8 @@ body {
 }
 
 header {
-  background: gray;
-}
-
-footer {
-  background: lightgray;
+  background: var(--color-300);
+  color: white;
 }
 
 header,
@@ -36,10 +45,10 @@ main {
 button {
   cursor: pointer;
   font-size: 0.8em;
-  padding: 0.25em 1em;
-  background: var(--color-100, white);
+  padding: 0.5em 1em;
+  background: white;
   border-radius: 5px;
-  border: 1px solid;
+  border: none;
   box-shadow: 0pc 2px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -49,6 +58,9 @@ button {
   margin: 0 auto;
 }
 
-main.container {
-  padding-top: 2rem;
+form {
+  background: var(--color-100);
+  padding: 2rem;
+  margin-top: 4rem;
+  border-radius: 1rem;
 }
