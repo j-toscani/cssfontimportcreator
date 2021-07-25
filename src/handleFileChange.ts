@@ -1,9 +1,13 @@
 export default function handleFileChange(e: InputEvent) {
   const files = (e.target as HTMLInputElement).files;
+  const inputContainer = document.querySelector(".filesinput__container");
 
   if (!files) {
+    inputContainer?.classList.remove("hide");
     console.warn("No files uploaded");
     return;
+  } else {
+    inputContainer?.classList.add("hide");
   }
 
   clearFileInputs();
