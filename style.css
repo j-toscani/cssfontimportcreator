@@ -61,6 +61,10 @@ button {
 .hide {
   display: hidden;
 }
+select,
+input {
+  padding: 0.25rem;
+}
 
 form {
   background: var(--color-100);
